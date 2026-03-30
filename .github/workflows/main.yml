@@ -1,0 +1,28 @@
+name: Brazil News Bot
+
+on:
+  schedule:
+    # 每天北京时间 08:30 运行 (UTC 00:30)
+    - cron: '30 0 * * *'
+  workflow_dispatch: # 允许手动点击按钮测试
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查代码
+        uses: actions/checkout@v3
+
+      - name: 设置 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 安装依赖
+        run: pip install requests
+
+      - name: 运行新闻抓取
+        env:
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: python news.py
