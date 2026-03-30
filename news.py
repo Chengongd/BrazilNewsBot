@@ -9,7 +9,7 @@ COUNTRY = 'br'
 NEWS_COUNT = 20
 
 def fetch_and_push():
-    url = f"https://newsapi.org/v2/top-headlines?country={COUNTRY}&pageSize={NEWS_COUNT}&apiKey={NEWS_API_KEY}"
+    url = f"https://newsapi.org/v2/everything?q=Brazil OR Brasil&language=pt&sortBy=publishedAt&pageSize={NEWS_COUNT}&apiKey={NEWS_API_KEY}"
     # GitHub 服务器在海外，无需设置代理，直接请求
     response = requests.get(url, timeout=30)
     data = response.json()
