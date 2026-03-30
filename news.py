@@ -3,8 +3,8 @@ import os
 import datetime
 
 # --- 从 GitHub Secrets 安全读取配置 ---
-NEWS_API_KEY = os.environ.get('c05aafa258ca4680b383f7334877b802')
-PUSHPLUS_TOKEN = os.environ.get('2c84872cb1784b72b94007c97c47b775')
+NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
+PUSHPLUS_TOKEN = os.environ.get('PUSHPLUS_TOKEN')
 COUNTRY = 'br'
 NEWS_COUNT = 20
 
